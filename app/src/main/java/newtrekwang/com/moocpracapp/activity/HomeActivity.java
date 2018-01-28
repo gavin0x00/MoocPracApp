@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -17,7 +18,6 @@ import newtrekwang.com.moocpracapp.view.fragment.home.MineFragment;
 public class HomeActivity extends BaseActivity implements View.OnClickListener {
     private FragmentManager fm;
     private HomeFragment mHomeFragment;
-    private Fragment mCommonFragmentOne;
     private MessageFragment mMessageFragment;
     private MineFragment mMineFragment;
     private Fragment mCurrent;
@@ -44,7 +44,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         fm = getFragmentManager();
         // 默认选中HomeFragment
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
-        fragmentTransaction.replace(R.id.content_layout,mHomeFragment);
+        fragmentTransaction.replace(R.id.content_layout,mHomeFragment,mHomeFragment.getTag());
         fragmentTransaction.commit();
     }
 
@@ -82,7 +82,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                  mMessageView.setBackgroundResource(R.drawable.comui_tab_message);
                  mMineView.setBackgroundResource(R.drawable.comui_tab_person);
 
-                 hideFragment(mCommonFragmentOne,fragmentTransaction);
+                // hideFragment(mCommonFragmentOne,fragmentTransaction);
                  hideFragment(mMessageFragment,fragmentTransaction);
                  hideFragment(mMineFragment,fragmentTransaction);
                  if (mHomeFragment == null){
@@ -100,7 +100,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 mMessageView.setBackgroundResource(R.drawable.comui_tab_message_selected);
                 mMineView.setBackgroundResource(R.drawable.comui_tab_person);
 
-                hideFragment(mCommonFragmentOne,fragmentTransaction);
+             //   hideFragment(mCommonFragmentOne,fragmentTransaction);
                 hideFragment(mHomeFragment,fragmentTransaction);
                 hideFragment(mMineFragment,fragmentTransaction);
                 if (mMessageFragment == null){
@@ -118,7 +118,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 mMessageView.setBackgroundResource(R.drawable.comui_tab_message);
                 mMineView.setBackgroundResource(R.drawable.comui_tab_person_selected);
 
-                hideFragment(mCommonFragmentOne,fragmentTransaction);
+              //  hideFragment(mCommonFragmentOne,fragmentTransaction);
                 hideFragment(mHomeFragment,fragmentTransaction);
                 hideFragment(mMessageFragment,fragmentTransaction);
                 if (mMineFragment == null){

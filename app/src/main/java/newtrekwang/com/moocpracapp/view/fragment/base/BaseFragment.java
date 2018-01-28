@@ -10,4 +10,5 @@ import android.app.Fragment;
 public class BaseFragment extends Fragment {
     protected Activity mContext;
 
+
 }
